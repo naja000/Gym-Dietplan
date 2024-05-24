@@ -1,0 +1,30 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form action="" method="post"><table width="200" border="1" class="table table-bordered">
+
+  <tr>
+    <td>Schedule</td>
+    <td>Fee</td>
+    <td>Date </td>
+    
+    <td>&nbsp;</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ i.SCHEDULE.slotno }}</td>
+    <td>&nbsp;{{ i.amount }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+    
+    <td><a href="/deletefee/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+  </tr>
+    {% endfor %}
+  <tr align="center">
+    <td colspan="7"><a href="addfee#about" class="btn btn-success">Add</a></td>
+    </tr>
+</table>
+
+</form>
+</body>
+{% endblock %}

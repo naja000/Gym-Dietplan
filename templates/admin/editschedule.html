@@ -1,0 +1,49 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/editschedulepost">
+    {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered">
+
+
+      <tr>
+    <td>Trainer</td>
+      <td><label for="textfield"></label>
+      <select name="select" required >
+
+            {% for i in val %}
+          <option value="{{ i.id }}" {% if i.id == data.TRAINER.id  %} selected {% endif %}>{{ i.firstname }}</option>
+{% endfor %}
+      </select> </td>
+    </tr>
+
+    <tr>
+      <td>Slot No </td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ data.slotno }}" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>From Time </td>
+      <td><label>
+        <input type="time" name="textfield3" value="{{ data.fromtime }}" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>To Time </td>
+      <td><label>
+        <input type="time" name="textfield4" value="{{ data.totime }}" required />
+      </label></td>
+    </tr>
+    
+    <tr align="center">
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Edit" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

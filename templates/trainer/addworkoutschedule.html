@@ -1,0 +1,36 @@
+{% extends 'trainer/trainerindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <td>Date</td>
+      <td><label>
+      <input type="text" name="textfield" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Time</td>
+      <td><label>
+        <input type="text" name="textfield2" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Workout</td>
+      <td><label>
+        <input type="text" name="textfield3" required />
+      </label></td>
+    </tr>
+    
+    
+    
+    <tr align="center">
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Add" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

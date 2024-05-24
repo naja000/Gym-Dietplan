@@ -1,0 +1,49 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edittrainerpost">
+    {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <td>First Name</td>
+      <td><label>
+        <input type="text" name="textfield" value="{{ data.firstname }}" required pattern="[A-Z a-z.]{2,}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Last Name </td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ data.lastname }}" required pattern="[A-Z a-z.]{1,}"/>
+      </label></td>
+    </tr>
+
+
+    <tr>
+      <td>Qualification</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ data.Qualification }}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="textfield5" value="{{ data.Phone }}" required pattern="[6789][0-9]{9}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><label>
+        <input type="text" name="textfield6" value="{{ data.Email }}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+      </label></td>
+    </tr>
+    
+    <tr align="center">
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Edit" class="btn btn-success" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

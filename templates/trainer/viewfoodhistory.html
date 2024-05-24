@@ -1,0 +1,36 @@
+{% extends 'trainer/trainerindex.html' %}
+{% block body %}
+<body>
+<form action="/viewfoodhistorypost#about" method="post">
+    <table width="200" border="1" class="table table-bordered">
+    <tr>
+      <td colspan="8">User
+        <select name="user" required>
+
+            {% for i in data %}
+          <option value="{{ i.USER.id }}" {% if  i.USER.id  ==  t  %} selected {% endif %} >{{ i.USER.firstname }}</option>
+{% endfor %}
+      </select>
+        <input type="submit" name="Submit" value="Search" class="btn btn-success" /></td>
+    </tr>
+
+        <tr>
+            <td>User</td>
+            <td>Food</td>
+            <td>Category</td>
+            <td>Details</td>
+        </tr>
+        {% for i in val %}
+
+        <tr>
+            <td>{{ i.USER.firstname }}</td>
+            <td>{{ i.foods }}</td>
+            <td>{{ i.category }}</td>
+            <td>{{ i.details }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+
+</body>
+{% endblock %}

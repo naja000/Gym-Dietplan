@@ -1,0 +1,49 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="addschedulepost">
+    {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered">
+
+      <tr>
+      <td>Trainer</td>
+      <td><label>
+      <select name="select" required >
+          <option value="">Select</option>
+            {% for i in data %}
+          <option value="{{ i.id }}">{{ i.firstname }}</option>
+{% endfor %}
+      </select>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td>Slot No </td>
+      <td><label>
+        <input type="text" name="textfield2" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>From Time </td>
+      <td><label>
+        <input type="time" name="textfield3" required />
+      </label></td>
+    </tr>
+    
+    <tr>
+      <td>To Time </td>
+      <td><label>
+        <input type="time" name="textfield4" required />
+      </label></td>
+    </tr>
+    
+    <tr align="center">
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Add" class="btn btn-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
